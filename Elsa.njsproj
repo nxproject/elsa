@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0b432539-029e-4ef0-bee2-7c4af92f5aed}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>stencil.config.ts</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <EnableTypeScript>true</EnableTypeScript>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">16.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <StartWebBrowser>False</StartWebBrowser>
+    <SaveNodeJsSettingsInProjectFile>False</SaveNodeJsSettingsInProjectFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <Content Include="src\plugins\task-activities.template" />
+    <None Include="tsconfig.json" />
+    <Content Include="README.md" />
+    <None Include="stencil.config.ts" />
+    <None Include="src\components.d.ts" />
+    <None Include="src\index.ts" />
+    <None Include="src\drivers\boolean-field-driver.ts" />
+    <None Include="src\drivers\expression-field-driver.ts" />
+    <None Include="src\drivers\index.ts" />
+    <None Include="src\drivers\list-field-driver.ts" />
+    <None Include="src\drivers\select-field-driver.ts" />
+    <None Include="src\drivers\text-field-driver.ts" />
+    <None Include="src\models\activity-definition-map.ts" />
+    <None Include="src\models\activity-definition.ts" />
+    <None Include="src\models\activity-display-modes.ts" />
+    <None Include="src\models\activity-handler-map.ts" />
+    <None Include="src\models\activity-message.ts" />
+    <None Include="src\models\activity-property-descriptor.ts" />
+    <None Include="src\models\activity.ts" />
+    <None Include="src\models\connection.ts" />
+    <None Include="src\models\field-driver-map.ts" />
+    <None Include="src\models\imported-workflow-data.ts" />
+    <None Include="src\models\index.ts" />
+    <None Include="src\models\outcome-names.ts" />
+    <None Include="src\models\point.ts" />
+    <None Include="src\models\render-designer-result.ts" />
+    <None Include="src\models\render-result.ts" />
+    <None Include="src\models\workflow-expression.ts" />
+    <None Include="src\models\workflow-format-descriptor.ts" />
+    <None Include="src\models\workflow-plugin.ts" />
+    <None Include="src\models\workflow.ts" />
+    <None Include="src\plugins\console-activities.ts" />
+    <None Include="src\plugins\control-flow-activities.ts" />
+    <None Include="src\plugins\primitives-activities.ts" />
+    <None Include="src\plugins\timer-activities.ts" />
+    <None Include="src\services\activity-handler.ts" />
+    <None Include="src\services\activity-manager.ts" />
+    <None Include="src\services\default-activity-handler.ts" />
+    <None Include="src\services\display-manager.ts" />
+    <None Include="src\services\elsa.ts" />
+    <None Include="src\services\field-driver.ts" />
+    <None Include="src\services\workflow-plugin-store.ts" />
+    <None Include="src\utils\css-class-map.ts" />
+    <None Include="src\utils\deep-clone.ts" />
+    <None Include="src\utils\deep-equals.ts" />
+    <None Include="src\utils\form-updater.ts" />
+    <None Include="src\utils\index.ts" />
+    <Content Include="src\components\context-menu\readme.md" />
+    <None Include="src\components\context-menu\context-menu-item.tsx" />
+    <None Include="src\components\context-menu\context-menu.tsx" />
+    <Content Include="src\components\field-editors\boolean-field\readme.md" />
+    <None Include="src\components\field-editors\boolean-field\boolean-field.tsx" />
+    <Content Include="src\components\field-editors\expression-field\readme.md" />
+    <None Include="src\components\field-editors\expression-field\expression-field.tsx" />
+    <Content Include="src\components\field-editors\list-field\readme.md" />
+    <None Include="src\components\field-editors\list-field\list-field.tsx" />
+    <Content Include="src\components\field-editors\select-field\readme.md" />
+    <None Include="src\components\field-editors\select-field\models.ts" />
+    <None Include="src\components\field-editors\select-field\select-field.tsx" />
+    <Content Include="src\components\field-editors\text-field\readme.md" />
+    <None Include="src\components\field-editors\text-field\text-field.tsx" />
+    <Content Include="src\components\workflow-designer\activity-editor\readme.md" />
+    <None Include="src\components\workflow-designer\activity-editor\activity-editor.tsx" />
+    <Content Include="src\components\workflow-designer\activity-picker\readme.md" />
+    <None Include="src\components\workflow-designer\activity-picker\activity-picker.tsx" />
+    <Content Include="src\components\workflow-designer\activity-renderer\readme.md" />
+    <None Include="src\components\workflow-designer\activity-renderer\activity-renderer.tsx" />
+    <Content Include="src\components\workflow-designer\designer\readme.md" />
+    <None Include="src\components\workflow-designer\designer\jsplumb-utils.ts" />
+    <None Include="src\components\workflow-designer\designer\models.ts" />
+    <None Include="src\components\workflow-designer\designer\designer.tsx" />
+    <Content Include="src\components\workflow-designer\designer-host\readme.md" />
+    <None Include="src\components\workflow-designer\designer-host\designer-host.tsx" />
+    <Content Include="src\components\workflow-designer\import-export\readme.md" />
+    <None Include="src\components\workflow-designer\import-export\export-button.tsx" />
+    <None Include="src\components\workflow-designer\import-export\import-export.tsx" />
+    <None Include="src\shared\@types\jquery.d.ts" />
+    <None Include="src\shared\@types\window.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src" />
+    <Folder Include="src\components" />
+    <Folder Include="src\components\context-menu" />
+    <Folder Include="src\components\field-editors" />
+    <Folder Include="src\components\field-editors\boolean-field" />
+    <Folder Include="src\components\field-editors\expression-field" />
+    <Folder Include="src\components\field-editors\list-field" />
+    <Folder Include="src\components\field-editors\select-field" />
+    <Folder Include="src\components\field-editors\text-field" />
+    <Folder Include="src\components\workflow-designer" />
+    <Folder Include="src\components\workflow-designer\activity-editor" />
+    <Folder Include="src\components\workflow-designer\activity-picker" />
+    <Folder Include="src\components\workflow-designer\activity-renderer" />
+    <Folder Include="src\components\workflow-designer\designer" />
+    <Folder Include="src\components\workflow-designer\designer-host" />
+    <Folder Include="src\components\workflow-designer\import-export" />
+    <Folder Include="src\drivers" />
+    <Folder Include="src\models" />
+    <Folder Include="src\plugins" />
+    <Folder Include="src\services" />
+    <Folder Include="src\shared" />
+    <Folder Include="src\shared\@types" />
+    <Folder Include="src\styles" />
+    <Folder Include="src\utils" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\drivers\slist-field-driver.ts" />
+    <TypeScriptCompile Include="src\plugins\task-activities.ts" />
+    <TypeScriptCompile Include="src\plugins\wf-activities.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

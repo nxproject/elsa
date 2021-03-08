@@ -1,0 +1,19 @@
+// Generated on {{ts}}
+
+import { OutcomeNames } from "../models/outcome-names";
+import { WorkflowPlugin } from "../models";
+import { ActivityDefinition } from "../models";
+import pluginStore from '../services/workflow-plugin-store';
+
+export class WorkflowActivities implements WorkflowPlugin {
+  private static readonly Category: string = "Activity";
+
+  getName = (): string => "WorkflowActivities";
+  getActivityDefinitions = (): Array<ActivityDefinition> => ([
+    {{items}}
+  ]);
+
+  {{definitions}}
+}
+
+pluginStore.add(new WorkflowActivities());

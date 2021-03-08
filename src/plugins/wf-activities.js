@@ -1,0 +1,46 @@
+"use strict";
+// Generated on 2/1/2021 10:34:03 AM
+Object.defineProperty(exports, "__esModule", { value: true });
+var outcome_names_1 = require("../models/outcome-names");
+var workflow_plugin_store_1 = require("../services/workflow-plugin-store");
+var WorkflowActivities = /** @class */ (function () {
+    function WorkflowActivities() {
+        var _this = this;
+        this.getName = function () { return "WorkflowActivities"; };
+        this.getActivityDefinitions = function () { return ([
+            _this.call(),
+            _this.delay(),
+            _this.end(),
+            _this.fork(),
+            _this.ifelse(),
+            _this.join(),
+            _this.switch(),
+            _this.task(),
+            _this.continueon(),
+            _this.onerror(),
+            _this.onoverdue(),
+            _this.do(),
+            _this.storeuse(),
+            _this.set()
+        ]); };
+        this.call = function () { return ({ type: 'call', displayName: 'call,', description: 'Starts a workflow,', runtimeDescription: 'x => !!x.state.workflow ? `Starts <strong>${ x.state.workflow.expression }</strong>` : x.definition.description', category: 'Action', icon: 'fas fa-dot-circle', outcomes: [outcome_names_1.OutcomeNames.Done, outcome_names_1.OutcomeNames.OnError], properties: [{ name: 'workflow', type: 'expression', label: 'Workflow', hint: 'The workflow to start' }, { name: 'name', type: 'text', label: 'Name', hint: 'The user defined name' }, { name: 'store', type: 'expression', label: 'Store', hint: 'The store to pass' }, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if' }, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish' }] }); };
+        this.delay = function () { return ({ type: 'delay', displayName: 'delay,', description: 'Delays for a specified duration,', runtimeDescription: 'x => !!x.state.duration ? `Delay for <strong>${ x.state.duration.expression }</strong>` : x.definition.description', category: 'Action', icon: 'fas fa-dot-circle', outcomes: [outcome_names_1.OutcomeNames.Done], properties: [{ name: 'duration', type: 'expression', label: 'Duration', hint: 'The duration length' }, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if' }, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish' }] }); };
+        this.end = function () { return ({ type: 'end', displayName: 'end,', description: 'Ends the workflow,', category: 'Flow', icon: 'fas fa-code-branch', outcomes: [], properties: [{ name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish' }] }); };
+        this.fork = function () { return ({ type: 'fork', displayName: 'fork,', description: 'Fork workflow execution into multiple branches,', category: 'Flow', icon: 'fas fa-code-branch', outcomes: 'x => x.state.branches', properties: [{ name: 'branches', type: 'list', label: 'Branches', hint: 'A comma-separated list of names representing branches' }, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish' }] }); };
+        this.ifelse = function () { return ({ type: 'ifelse', displayName: 'ifelse,', description: 'Evaluate a Boolean expression and continue execution depending on the result,', runtimeDescription: 'x => !!x.state.expression ? `Evaluate <strong>${ x.state.expression.expression }</strong> and continue execution depending on the result.` : x.definition.description', category: 'Flow', icon: 'fas fa-code-branch', outcomes: [outcome_names_1.OutcomeNames.True, outcome_names_1.OutcomeNames.False], properties: [{ name: 'expression', type: 'expression', label: 'Expression', hint: 'The expression to evaluate. The evaluated value will be used to switch on' }] }); };
+        this.join = function () { return ({ type: 'join', displayName: 'join,', description: 'Merge workflow execution back into a single branch,', runtimeDescription: 'x => !!x.state.joinMode ? `Merge workflow execution back into a single branch using mode <strong>${ x.state.joinMode }</strong>` : x.definition.description', category: 'Flow', icon: 'fas fa-code-branch', outcomes: [outcome_names_1.OutcomeNames.Done], properties: [{ name: 'joinMode', type: 'select', label: 'JoinMode', options: { items: ["WaitAll", "WaitAny"] }, hint: 'Either wait for all or any' }, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish' }] }); };
+        this.switch = function () { return ({ type: 'switch', displayName: 'switch,', description: 'Switch execution based on a given expression,', runtimeDescription: 'x => !!x.state.expression ? `Switch execution based on <strong>${ x.state.expression.expression }</strong>.` : x.definition.description', category: 'Flow', icon: 'fas fa-code-branch', outcomes: 'x => x.state.cases', properties: [{ name: 'expression', type: 'expression', label: 'Expression', hint: 'The expression to evaluate. The evaluated value will be used to switch on' }, { name: 'cases', type: 'list', label: 'Cases', hint: 'A comma-separated list of possible outcomes of the expression' }] }); };
+        this.task = function () { return ({ type: 'task', displayName: 'task,', description: 'Calls a task,', runtimeDescription: 'x => !!x.state.task ? `Calls <strong>${ x.state.task.expression }</strong>` : x.definition.description', category: 'Action', icon: 'fas fa-dot-circle', outcomes: [outcome_names_1.OutcomeNames.Done], properties: [{ name: 'task', type: 'expression', label: 'Task', hint: 'The task to call' }, { name: 'store', type: 'expression', label: 'Store', hint: 'The store to pass' }, { name: 'return', type: 'expression', label: 'Return', hint: 'The store to use for the return' }, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if' }, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish' }] }); };
+        this.continueon = function () { return ({ type: 'continue.on', displayName: 'continue.on,', description: 'Continues an an on.xxx call,', category: 'Flow', icon: 'fas fa-code-branch', outcomes: [], properties: [{ name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish' }] }); };
+        this.onerror = function () { return ({ type: 'on.error', displayName: 'on.error,', description: 'Sets the default process to handle errors,', category: 'Flow', icon: 'fas fa-code-branch', outcomes: [outcome_names_1.OutcomeNames.Done, outcome_names_1.OutcomeNames.OnError], properties: [{ name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish' }] }); };
+        this.onoverdue = function () { return ({ type: 'on.overdue', displayName: 'on.overdue,', description: 'Sets the default process to handle overdues,', category: 'Flow', icon: 'fas fa-code-branch', outcomes: [outcome_names_1.OutcomeNames.Done, outcome_names_1.OutcomeNames.OnOverdue], properties: [{ name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish' }] }); };
+        this.do = function () { return ({ type: 'do', displayName: 'do,', description: 'Creates activity,', runtimeDescription: 'x => !!x.state.subject ? \`<strong>\${ x.state.subject }</strong>\` : x.definition.description', category: 'Action', icon: 'fas fa-dot-circle', outcomes: [outcome_names_1.OutcomeNames.Done, outcome_names_1.OutcomeNames.Fail, outcome_names_1.OutcomeNames.OnOverdue, outcome_names_1.OutcomeNames.OnError], properties: [{ name: 'subject', type: 'expression', label: 'Subject', hint: 'The subject line' }, { name: 'message', type: 'expression', label: 'Message', hint: 'The message line' }, { name: 'assignedTo', type: 'expression', label: 'AssignedTo', hint: 'The group to whom the activity is assigned to' }, { name: 'duration', type: 'expression', label: 'Duration', hint: 'The duration length' }, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if' }, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish' }] }); };
+        this.storeuse = function () { return ({ type: 'store.use', displayName: 'store.use,', description: 'Sets the default store,', category: 'Store', icon: 'fas fa-database', outcomes: [outcome_names_1.OutcomeNames.Done], properties: [{ name: 'store', type: 'expression', label: 'Store', hint: 'The store to use' }, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if' }, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish' }] }); };
+        this.set = function () { return ({ type: 'set', displayName: 'set,', description: 'Sets a value,', category: 'Ops', icon: 'fas fa-plus-square', outcomes: [outcome_names_1.OutcomeNames.Done], properties: [{ name: 'field', type: 'expression', label: 'Field', hint: 'The field' }, { name: 'value', type: 'expression', label: 'Value', hint: 'The value' }, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if' }, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish' }] }); };
+    }
+    WorkflowActivities.Category = "Activity";
+    return WorkflowActivities;
+}());
+exports.WorkflowActivities = WorkflowActivities;
+workflow_plugin_store_1.default.add(new WorkflowActivities());
+//# sourceMappingURL=wf-activities.js.map
