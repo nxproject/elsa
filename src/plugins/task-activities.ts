@@ -1,4 +1,4 @@
-// Generated on 3/24/2021 4:18:23 PM
+// Generated on 3/24/2021 4:32:48 PM
 
 import { OutcomeNames } from "../models/outcome-names";
 import { WorkflowPlugin } from "../models";
@@ -43,9 +43,7 @@ this.msgsetpost(),
 this.msgsettemplatesms(),
 this.msgsetsubject(),
 this.msguse(),
-this.sendemail(),
-this.sendqm(),
-this.sendsms(),
+this.send(),
 this.doclistadd(),
 this.doclistclear(),
 this.doclistdelete(),
@@ -207,11 +205,7 @@ this.wordunshift()
 
  private msguse = (): ActivityDefinition => ({ type: 'msg.use',  displayName: 'msg.use,',  description: 'Sets the default message,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
 
- private sendemail = (): ActivityDefinition => ({ type: 'send.email',  displayName: 'send.email,',  description: 'Sends an EMail,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'to', type: 'expression', label: 'To', hint: 'E-Mail address to send the email'}, { name: 'subj', type: 'expression', label: 'Subj', hint: 'The subject of the message to be sent'}, { name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to be sent'}, { name: 'list', type: '', label: 'List', hint: 'List of documents to attach'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
-
- private sendqm = (): ActivityDefinition => ({ type: 'send.qm',  displayName: 'send.qm,',  description: 'Sends a Quick Message,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'to', type: 'expression', label: 'To', hint: 'User to send the quick message to'}, { name: 'subj', type: 'expression', label: 'Subj', hint: 'The subject of the message to be sent'}, { name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to be sent'}, { name: 'list', type: 'expression', label: 'List', hint: 'List of documents to attach'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
-
- private sendsms = (): ActivityDefinition => ({ type: 'send.sms',  displayName: 'send.sms,',  description: 'Sends a SMS message,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'to', type: 'expression', label: 'To', hint: 'Phone number to send SMS message to (self if empty)'}, { name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to be sent'}, { name: 'list', type: 'expression', label: 'List', hint: 'List of documents to attach'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+ private send = (): ActivityDefinition => ({ type: 'send',  displayName: 'send,',  description: 'Sends a message,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to be sent'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
 
  private doclistadd = (): ActivityDefinition => ({ type: 'doc.list.add',  displayName: 'doc.list.add,',  description: 'Adds a document to the list,',  category: 'Document List',  icon: 'fas fa-folder',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'doc', type: 'expression', label: 'Doc', hint: 'The document name to add'}, { name: 'list', type: 'expression', label: 'List', hint: 'The list'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
 
