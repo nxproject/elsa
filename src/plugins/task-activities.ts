@@ -1,4 +1,4 @@
-// Generated on 2/15/2021 8:47:14 AM
+// Generated on 3/24/2021 4:18:23 PM
 
 import { OutcomeNames } from "../models/outcome-names";
 import { WorkflowPlugin } from "../models";
@@ -20,6 +20,29 @@ this.arraypush(),
 this.arrayshift(),
 this.arrayunshift(),
 this.arrayuse(),
+this.textaddtext(),
+this.textaddword(),
+this.textappendparagraph(),
+this.textadddoclist(),
+this.textinsertparagraph(),
+this.textload(),
+this.texttext(),
+this.textuse(),
+this.msgactionadd(),
+this.msgattachmentadd(),
+this.msgtoadd(),
+this.msgactionsclear(),
+this.msgattachmentsclear(),
+this.msgtosclear(),
+this.msgremove(),
+this.msgsettemplateemail(),
+this.msgsetfooter(),
+this.msgsetitem(),
+this.msgsetmessage(),
+this.msgsetpost(),
+this.msgsettemplatesms(),
+this.msgsetsubject(),
+this.msguse(),
 this.sendemail(),
 this.sendqm(),
 this.sendsms(),
@@ -87,14 +110,6 @@ this.storeuse(),
 this.decr(),
 this.incr(),
 this.set(),
-this.textaddtext(),
-this.textaddword(),
-this.textappendparagraph(),
-this.textadddoclist(),
-this.textinsertparagraph(),
-this.textload(),
-this.texttext(),
-this.textuse(),
 this.ttcontinue(),
 this.ttfreeze(),
 this.ttstart(),
@@ -119,11 +134,11 @@ this.httpget(),
 this.httpuse(),
 this.workflowend(),
 this.workflowstart(),
+this.docpdf(),
 this.wordpop(),
 this.wordpush(),
 this.wordshift(),
-this.wordunshift(),
-this.docpdf()
+this.wordunshift()
   ]);
 
    private noop = (): ActivityDefinition => ({ type: 'noop',  displayName: 'noop,',  description: 'Does nothing,',  category: 'Flow',  icon: 'fas fa-code-branch',  outcomes: [OutcomeNames.Done],   properties: []});
@@ -146,7 +161,53 @@ this.docpdf()
 
  private arrayuse = (): ActivityDefinition => ({ type: 'array.use',  displayName: 'array.use,',  description: 'Sets the default array,',  category: 'Array',  icon: 'fas fa-layer-group',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'array', type: 'expression', label: 'Array', hint: 'The name of the array'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
 
- private sendemail = (): ActivityDefinition => ({ type: 'send.email',  displayName: 'send.email,',  description: 'Sends an EMail,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'to', type: 'expression', label: 'To', hint: 'E-Mail address to send the email'}, { name: 'subj', type: 'expression', label: 'Subj', hint: 'The subject of the message to be sent'}, { name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to be sent'}, { name: 'list', type: '', label: 'List', hint: 'List of documents to attach'}, { name: 'meeting', type: '', label: 'Meeting', hint: 'Calendar object'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+ private textaddtext = (): ActivityDefinition => ({ type: 'text.add.text',  displayName: 'text.add.text,',  description: 'Adds text to a text line,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The text'}, { name: 'line', type: 'expression', label: 'Line', hint: 'The row'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private textaddword = (): ActivityDefinition => ({ type: 'text.add.word',  displayName: 'text.add.word,',  description: 'Adds text to a text line,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The text'}, { name: 'line', type: 'expression', label: 'Line', hint: 'The row'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private textappendparagraph = (): ActivityDefinition => ({ type: 'text.append.paragraph',  displayName: 'text.append.paragraph,',  description: 'Appends a new word to a text,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The text'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private textadddoclist = (): ActivityDefinition => ({ type: 'text.add.doclist',  displayName: 'text.add.doclist,',  description: 'Appends a block of doc names to a memo,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'list', type: 'expression', label: 'List', hint: 'The list'}, { name: 'line', type: 'expression', label: 'Line', hint: 'The row'}, { name: 'delim', type: 'expression', label: 'Delim', hint: 'The delimiter'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private textinsertparagraph = (): ActivityDefinition => ({ type: 'text.insert.paragraph',  displayName: 'text.insert.paragraph,',  description: 'Inserts a new paragraph to a text,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The text'}, { name: 'line', type: 'expression', label: 'Line', hint: 'The row to insert before'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private textload = (): ActivityDefinition => ({ type: 'text.load',  displayName: 'text.load,',  description: 'Copies a value into a text area,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The value'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private texttext = (): ActivityDefinition => ({ type: 'text.text',  displayName: 'text.text,',  description: 'Copies text into a field,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'field', type: 'expression', label: 'Field', hint: 'The field'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private textuse = (): ActivityDefinition => ({ type: 'text.use',  displayName: 'text.use,',  description: 'Sets the default text,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msgactionadd = (): ActivityDefinition => ({ type: 'msg.action.add',  displayName: 'msg.action.add,',  description: 'Adds an action to the message,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'task', type: 'expression', label: 'Task', hint: 'The task'}, { name: 'name', type: 'expression', label: 'Name', hint: 'The name to display'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msgattachmentadd = (): ActivityDefinition => ({ type: 'msg.attachment.add',  displayName: 'msg.attachment.add,',  description: 'Adds an attachment to the message,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'doc', type: 'expression', label: 'Doc', hint: 'The document'}, { name: 'name', type: 'expression', label: 'Name', hint: 'The name to display'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msgtoadd = (): ActivityDefinition => ({ type: 'msg.to.add',  displayName: 'msg.to.add,',  description: 'Adds an addressee to the message,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'to', type: 'expression', label: 'To', hint: 'The to'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msgactionsclear = (): ActivityDefinition => ({ type: 'msg.actions.clear',  displayName: 'msg.actions.clear,',  description: 'Removes all actions from the message,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msgattachmentsclear = (): ActivityDefinition => ({ type: 'msg.attachments.clear',  displayName: 'msg.attachments.clear,',  description: 'Removes all attachments from the message,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msgtosclear = (): ActivityDefinition => ({ type: 'msg.tos.clear',  displayName: 'msg.tos.clear,',  description: 'Removes all tos from the message,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msgremove = (): ActivityDefinition => ({ type: 'msg.remove',  displayName: 'msg.remove,',  description: 'Removes the message from the stack,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to remove'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msgsettemplateemail = (): ActivityDefinition => ({ type: 'msg.set.template.email',  displayName: 'msg.set.template.email,',  description: 'Sets the message EMail template,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The template'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msgsetfooter = (): ActivityDefinition => ({ type: 'msg.set.footer',  displayName: 'msg.set.footer,',  description: 'Sets the message footer text,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The footer text'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msgsetitem = (): ActivityDefinition => ({ type: 'msg.set.item',  displayName: 'msg.set.item,',  description: 'Sets the message item text,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'item', type: 'expression', label: 'Item', hint: 'The  item'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The  text'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msgsetmessage = (): ActivityDefinition => ({ type: 'msg.set.message',  displayName: 'msg.set.message,',  description: 'Sets the message text,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The body text'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msgsetpost = (): ActivityDefinition => ({ type: 'msg.set.post',  displayName: 'msg.set.post,',  description: 'Sets the message post text,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The post text'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msgsettemplatesms = (): ActivityDefinition => ({ type: 'msg.set.template.sms',  displayName: 'msg.set.template.sms,',  description: 'Sets the message SMS template,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The template'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msgsetsubject = (): ActivityDefinition => ({ type: 'msg.set.subject',  displayName: 'msg.set.subject,',  description: 'Sets the message subject,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The subject'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msguse = (): ActivityDefinition => ({ type: 'msg.use',  displayName: 'msg.use,',  description: 'Sets the default message,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private sendemail = (): ActivityDefinition => ({ type: 'send.email',  displayName: 'send.email,',  description: 'Sends an EMail,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'to', type: 'expression', label: 'To', hint: 'E-Mail address to send the email'}, { name: 'subj', type: 'expression', label: 'Subj', hint: 'The subject of the message to be sent'}, { name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to be sent'}, { name: 'list', type: '', label: 'List', hint: 'List of documents to attach'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
 
  private sendqm = (): ActivityDefinition => ({ type: 'send.qm',  displayName: 'send.qm,',  description: 'Sends a Quick Message,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'to', type: 'expression', label: 'To', hint: 'User to send the quick message to'}, { name: 'subj', type: 'expression', label: 'Subj', hint: 'The subject of the message to be sent'}, { name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to be sent'}, { name: 'list', type: 'expression', label: 'List', hint: 'List of documents to attach'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
 
@@ -280,22 +341,6 @@ this.docpdf()
 
  private set = (): ActivityDefinition => ({ type: 'set',  displayName: 'set,',  description: 'Sets a value,',  category: 'Ops',  icon: 'fas fa-plus-square',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'field', type: 'expression', label: 'Field', hint: 'The field'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The value'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
 
- private textaddtext = (): ActivityDefinition => ({ type: 'text.add.text',  displayName: 'text.add.text,',  description: 'Adds text to a text line,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The text'}, { name: 'line', type: 'expression', label: 'Line', hint: 'The row'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
-
- private textaddword = (): ActivityDefinition => ({ type: 'text.add.word',  displayName: 'text.add.word,',  description: 'Adds text to a text line,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The text'}, { name: 'line', type: 'expression', label: 'Line', hint: 'The row'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
-
- private textappendparagraph = (): ActivityDefinition => ({ type: 'text.append.paragraph',  displayName: 'text.append.paragraph,',  description: 'Appends a new word to a text,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The text'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
-
- private textadddoclist = (): ActivityDefinition => ({ type: 'text.add.doclist',  displayName: 'text.add.doclist,',  description: 'Appends a block of doc names to a memo,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'list', type: 'expression', label: 'List', hint: 'The list'}, { name: 'line', type: 'expression', label: 'Line', hint: 'The row'}, { name: 'delim', type: 'expression', label: 'Delim', hint: 'The delimiter'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
-
- private textinsertparagraph = (): ActivityDefinition => ({ type: 'text.insert.paragraph',  displayName: 'text.insert.paragraph,',  description: 'Inserts a new paragraph to a text,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The text'}, { name: 'line', type: 'expression', label: 'Line', hint: 'The row to insert before'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
-
- private textload = (): ActivityDefinition => ({ type: 'text.load',  displayName: 'text.load,',  description: 'Copies a value into a text area,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The value'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
-
- private texttext = (): ActivityDefinition => ({ type: 'text.text',  displayName: 'text.text,',  description: 'Copies text into a field,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'field', type: 'expression', label: 'Field', hint: 'The field'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
-
- private textuse = (): ActivityDefinition => ({ type: 'text.use',  displayName: 'text.use,',  description: 'Sets the default text,',  category: 'Text',  icon: 'fas fa-paragraph',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'text', type: 'expression', label: 'Text', hint: 'The text name'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
-
  private ttcontinue = (): ActivityDefinition => ({ type: 'tt.continue',  displayName: 'tt.continue,',  description: 'Continues time tracking,',  category: 'Time Track',  icon: 'fas fa-clock',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'obj', type: 'expression', label: 'Obj', hint: 'The name of the object'}, { name: 'type', type: 'expression', label: 'Type', hint: 'The type of tag'}, { name: 'user', type: 'expression', label: 'User', hint: 'The user'}, { name: 'reason', type: 'expression', label: 'Reason', hint: 'The reason of the freeze'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
 
  private ttfreeze = (): ActivityDefinition => ({ type: 'tt.freeze',  displayName: 'tt.freeze,',  description: 'Freezes time tracking,',  category: 'Time Track',  icon: 'fas fa-clock',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'obj', type: 'expression', label: 'Obj', hint: 'The name of the object'}, { name: 'type', type: 'expression', label: 'Type', hint: 'The type of tag'}, { name: 'user', type: 'expression', label: 'User', hint: 'The user'}, { name: 'reason', type: 'expression', label: 'Reason', hint: 'The reason of the freeze'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
@@ -344,6 +389,8 @@ this.docpdf()
 
  private workflowstart = (): ActivityDefinition => ({ type: 'workflow.start',  displayName: 'workflow.start,',  description: 'Starts a workflow on a given object,',  category: 'Workflow',  icon: 'fas fa-network-wired',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'obj', type: 'expression', label: 'Obj', hint: 'The name of the object'}, { name: 'wf', type: 'expression', label: 'Wf', hint: 'The workflow to start'}, { name: 'name', type: 'text', label: 'Name', hint: 'The user defined name'}, { name: 'store', type: 'expression', label: 'Store', hint: 'The store to pass'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
 
+ private docpdf = (): ActivityDefinition => ({ type: 'doc.pdf',  displayName: 'doc.pdf,',  description: 'Converts to PDF,',  category: 'Document',  icon: 'fas fa-file',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'doc', type: 'expression', label: 'Doc', hint: 'The document to be merged'}, { name: 'to', type: 'expression', label: 'To', hint: 'The PDF document'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
  private wordpop = (): ActivityDefinition => ({ type: 'word.pop',  displayName: 'word.pop,',  description: 'Remove word from end of string,',  category: 'Word',  icon: 'fas fa-keyboard',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'string', type: 'expression', label: 'String', hint: 'The string'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The text'}, { name: 'delim', type: 'expression', label: 'Delim', hint: 'The delimiter'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
 
  private wordpush = (): ActivityDefinition => ({ type: 'word.push',  displayName: 'word.push,',  description: 'Adds text to end of string,',  category: 'Word',  icon: 'fas fa-keyboard',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'string', type: 'expression', label: 'String', hint: 'The string'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The text'}, { name: 'delim', type: 'expression', label: 'Delim', hint: 'The delimiter'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
@@ -351,8 +398,6 @@ this.docpdf()
  private wordshift = (): ActivityDefinition => ({ type: 'word.shift',  displayName: 'word.shift,',  description: 'Remove text from front of string,',  category: 'Word',  icon: 'fas fa-keyboard',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'string', type: 'expression', label: 'String', hint: 'The string'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The text'}, { name: 'delim', type: 'expression', label: 'Delim', hint: 'The delimiter'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
 
  private wordunshift = (): ActivityDefinition => ({ type: 'word.unshift',  displayName: 'word.unshift,',  description: 'Adds text to front of string,',  category: 'Word',  icon: 'fas fa-keyboard',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'string', type: 'expression', label: 'String', hint: 'The string'}, { name: 'value', type: 'expression', label: 'Value', hint: 'The text'}, { name: 'delim', type: 'expression', label: 'Delim', hint: 'The delimiter'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
-
- private docpdf = (): ActivityDefinition => ({ type: 'doc.pdf',  displayName: 'doc.pdf,',  description: 'Converts to PDF,',  category: 'Document',  icon: 'fas fa-file',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'doc', type: 'expression', label: 'Doc', hint: 'The document to be merged'}, { name: 'to', type: 'expression', label: 'To', hint: 'The PDF document'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
 
 
 }

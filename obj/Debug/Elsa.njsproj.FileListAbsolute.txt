@@ -1,0 +1,3 @@
+C:\Candid Concepts\NX\Others\Elsa\obj\Debug\Elsa.njsprojAssemblyReference.cache
+C:\Candid Concepts\NX\Others\Elsa\obj\Debug\Elsa.njsproj.CoreCompileInputs.cache
+C:\Candid Concepts\NX\Others\Elsa\bin\Microsoft.NodejsTools.WebRole.dll
