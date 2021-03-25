@@ -1,4 +1,4 @@
-// Generated on 3/24/2021 4:32:48 PM
+// Generated on 3/25/2021 10:59:55 AM
 
 import { OutcomeNames } from "../models/outcome-names";
 import { WorkflowPlugin } from "../models";
@@ -34,6 +34,7 @@ this.msgtoadd(),
 this.msgactionsclear(),
 this.msgattachmentsclear(),
 this.msgtosclear(),
+this.msgcreate(),
 this.msgremove(),
 this.msgsettemplateemail(),
 this.msgsetfooter(),
@@ -186,6 +187,8 @@ this.wordunshift()
  private msgattachmentsclear = (): ActivityDefinition => ({ type: 'msg.attachments.clear',  displayName: 'msg.attachments.clear,',  description: 'Removes all attachments from the message,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
 
  private msgtosclear = (): ActivityDefinition => ({ type: 'msg.tos.clear',  displayName: 'msg.tos.clear,',  description: 'Removes all tos from the message,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to use'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
+
+ private msgcreate = (): ActivityDefinition => ({ type: 'msg.create',  displayName: 'msg.create,',  description: 'Creates a message in the stack,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to remove'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
 
  private msgremove = (): ActivityDefinition => ({ type: 'msg.remove',  displayName: 'msg.remove,',  description: 'Removes the message from the stack,',  category: 'Comm',  icon: 'fas fa-tty',  outcomes: [OutcomeNames.Done],   properties: [{ name: 'msg', type: 'expression', label: 'Msg', hint: 'The message to remove'}, { name: 'if', type: 'expression', label: 'If', hint: 'Execute if'}, { name: 'comment', type: 'text', label: 'Comment', hint: 'What does this step accomplish'}]});
 
